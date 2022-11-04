@@ -53,7 +53,8 @@ function displayCartDom() {
 }
 
 function removeItems(id) {
-  cart = cart.filter((cartItem) => cartItem.id === id)
+  cart = cart.filter((cartItem) => cartItem.id === id);
+  displayCartTotal();
   localStorage.removeItem("cart", cart);
 };
 
