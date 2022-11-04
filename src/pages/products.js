@@ -16,19 +16,20 @@ import fetchProducts from "../fetchProducts.js";
 
 
 const init = async () => {
-  const products = await fetchProducts();
   const loading = getElement('.lds-facebook');
-
-  if (store.length === 0 ) {
+  
+  if (store.length < 1) {
+    const products = await fetchProducts();
     setupStore(products);
   }
   
-  display(store, getElement('.products-container'), true);
+  display(store, getElement('.products-container'))
   
+  setupSearch(store)
   setupCompanies(store);
-  setupSearch(store);
   setupPrice(store);
   loading.style.display = "none";
-};
+}
+
 
 init();

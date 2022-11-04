@@ -10,31 +10,35 @@ const setupStore = (products) => {
   store = products.map((product) => {
     const { id, fields } = product;
     const {
-      colors,
-      featured,
-      image: img,
       company,
       name,
+      colors,
       price,
+      description,
+      image: img,
+      featured
     } = fields;
     const image = img[0].thumbnails.large.url;
+
     return {
       id,
       featured,
-      name,
-      price,
       company,
+      name,
       colors,
+      description,
+      price,
       image
     }
   })
+
   setStorageItem("store", store);
-  
 };
 
 const findProduct = (id) => {
-  let newAmount = store.find((product) => product.id === id);
-  return newAmount;
+  let products = store.find((product) => product.id === id);
+  console.log(products);
+  return products;
  };
 
 export {

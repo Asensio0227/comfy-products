@@ -21,5 +21,53 @@ const cartBtn = getElement('.addToCartBtn');
 // products
 let productID
 
+const init = async () => {
+  const urlID = window.location.search;
+  try {
+    const resp = await fetch(`${singleProductUrl}${urlID}`);
+   if (resp.status >= 200 && resp.status <= 299) {
+      const products = await resp.json();
+     const { id, fields } = products;
+     productID = id;
+     const {
+       colors,
+       company,
+       name,
+       price,
+       description,
+     } = fields;
+     const image = fields.image[0].thumbnails.large.url;
+
+     document.title = `${name.toUpperCase()} | comfy`;
+     pageTitleDOM.textContent = `home | ${name}`;
+     imgDOM.src = image;
+     titleDOM.textContent = name;
+     companyDOM.textContent = `by ${company}`;
+     priceDom.textContent = formatPrice(price);
+     colors.map((color) => {
+       let span = document.createElement('span');
+       span.classList.add("product-color");
+       span.style.backgroundColor = color;
+       colorDom.appendChild(span);
+     });
+     descDom.textContent = description;
+    } else {
+      console.log(resp.status, resp.statusText);
+      centerDOM.innerHTML = `<h3 class="error">
+      sorry, something went wrong
+      </h3>`
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  loading.style.display = "none";
+}
 
 // show product when page loads
+window.addEventListener("DOMContentLoaded", function () {
+  init();
+})
+
+cartBtn.addEventListener('click', function () {
+  addToCart(productID);
+})
