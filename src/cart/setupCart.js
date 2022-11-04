@@ -54,6 +54,7 @@ function displayCartDom() {
 
 function removeItems(id) {
   cart = cart.filter((cartItem) => cartItem.id === id)
+  localStorage.removeItem("cart", cart);
 };
 
 function increaseAmount(id) {
@@ -97,6 +98,7 @@ function setupCartFunctionality() {
     
     if (element.classList.contains("cart-item-remove-btn")) {
       removeItems(id);
+      
       element.parentElement.parentElement.remove();
     }
     if (parent.classList.contains("cart-item-increase-btn")) {
