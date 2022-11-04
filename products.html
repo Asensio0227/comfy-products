@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Comfy</title>
+  <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="navbar page">
+    <div class="nav-center">
+      <!-- links -->
+      <div>
+        <button class="toggle-nav">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html" class="nav-link">
+              home
+            </a>
+          </li>
+          <li>
+            <a href="products.html" class="nav-link">
+              products
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="nav-link">
+              about
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- logo -->
+      <img src="./images/logo-black.svg" alt="logo" class="nav-log"/>
+      <!-- cart-icon -->
+      <div class="toggle-container">
+        <button class="toggle-cart">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+        <span class="cart-item-count">1</span>
+      </div>
+    </div>
+  </nav>
+  <!-- hero -->
+  <section class="page-hero">
+     <div class="section-center">
+      <h3 class="page-hero-title">
+        home/products
+      </h3>
+     </div>
+  </section>
+  <!-- sidebar -->
+  <div class="sidebar-overlay">
+    <aside class="sidebar">
+      <!-- close -->
+      <button class="sidebar-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <!-- links -->
+      <ul class="sidebar-links">
+        <li>
+          <a href="index.html" class="sidebar-link fa-fw">
+            home
+          </a>
+        </li>
+        <li>
+          <a href="products.html" class="sidebar-link fa-fw">
+            products
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="sidebar-link fa-fw">
+            about
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <!-- cart -->
+  <div class="cart-overlay">
+    <aside class="cart">
+      <button class="cart-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <header>
+        <h3 class="text-slanted">
+          your bag
+        </h3>
+      </header>
+      <!-- cart-items -->
+      <div class="cart-items">
+        <article class="cart-item" data-id="1">
+          <img src="./images//main-bcg.jpeg" alt="high bench" class="cart-item-img">
+          <div>
+            <h4>high bench</h4>
+            <p class="cart-item-price">$9.90</p>
+            <button class="cart-item-remove-btn" data-id="1">
+              remove
+            </button>
+          </div>
+
+          <div>
+            <button class="cart-item-increase" data-id="1">
+              <i class="fas fa-chevron-up"></i>
+            </button>
+            <p class="cart-item-amount" data-id="1">1</p>
+            <button class="cart-item-decrease" data-id="1">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </article>
+      </div>
+      <!-- footer -->
+      <footer>
+        <h3 class="cart-total text-slanted">
+          total : $12.99
+        </h3>
+        <button class="cart-chackout btn">
+          checkout
+        </button>
+      </footer>
+    </aside>
+  </div>
+  <!-- products -->
+  <section class="products">
+    <div class="filters">
+      <div class="filters-container">
+        <!-- search -->
+        <form class="search-form">
+          <input 
+          type="text"
+           class="search-input"
+           placeholder="Search..."
+           />
+        </form>
+        <!-- categories -->
+        <h4>company</h4>
+        <article class="companies"></article>
+        <!-- price -->
+        <h4>price</h4>
+        <form class="price-form">
+          <input 
+          type="range"
+           min="0"
+            max="100"
+             value="50" 
+            class="price-filter">
+        </form>
+        <p class="price-value"></p>
+      </div>
+    </div>
+    <!-- products -->
+    <div class="products-container"></div>
+  </section>
+  <!-- loading -->
+  <div class="lds-facebook"></div>
+  <script type="module" src="./src/pages/products.js"></script>
+</body>
+</html>
