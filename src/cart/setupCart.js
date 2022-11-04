@@ -43,7 +43,7 @@ function displayCartTotal() {
   let total = cart.reduce((cartTotal, cartItem) => {
     return cartTotal += cartItem.price * cartItem.amount;
   },0)
-  cartTotalDom.textContent =`${ formatPrice(total)}`;
+  cartTotalDom.textContent =`total : ${ formatPrice(total)}`;
 }
 
 function displayCartDom() {
@@ -54,8 +54,6 @@ function displayCartDom() {
 
 function removeItems(id) {
   cart = cart.filter((cartItem) => cartItem.id === id);
-  displayCartTotal();
-  localStorage.removeItem("cart", cart);
 };
 
 function increaseAmount(id) {
