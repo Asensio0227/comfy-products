@@ -101,7 +101,11 @@ function setupCartFunctionality() {
     }
     // decrease
      if (parent.classList.contains("cart-item-decrease-btn")) {
-      const newAmount = decreaseCart(parentID);
+       const newAmount = decreaseCart(parentID);
+       if (newAmount === 0) {
+         removeCart(parentID);
+         parent.parentElement.parentElement.remove();
+       }
       parent.previousElementSibling.textContent = newAmount;
     }
     displayCartItemsCount();
