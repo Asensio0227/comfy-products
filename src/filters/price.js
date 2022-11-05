@@ -13,7 +13,6 @@ const setupPrice = (store) => {
   priceInput.max = maxPrice
   priceInput.min = 0;
   priceValue.textContent = `Value :  $${maxPrice}`
-  console.log(maxPrice);
 
   priceInput.addEventListener('input', function () {
     const value = parseInt(priceInput.value);

@@ -37,7 +37,6 @@ const setupStore = (products) => {
 
 const findProduct = (id) => {
   let products = store.find((product) => product.id === id);
-  console.log(products);
   return products;
  };
 
